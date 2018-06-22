@@ -6,7 +6,7 @@ do_image_ostree[depends] = "ostree-native:do_populate_sysroot \
                         virtual/kernel:do_deploy \
                         ${OSTREE_INITRAMFS_IMAGE}:do_image_complete"
 
-export REPRODUCIBLE_TIMESTAMP_ROOTFS = "${WRLINUX_MAJOR_VERSION]${WRLINUX_YEAR_VERSION}"
+export REPRODUCIBLE_TIMESTAMP_ROOTFS ??= "`date --date="20${WRLINUX_YEAR_VERSION}-01-01 +${WRLINUX_WW_VERSION}weeks" +%s`"
 export BUILD_REPRODUCIBLE_BINARIES = "1"
 
 export OSTREE_REPO
