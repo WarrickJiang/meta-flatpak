@@ -94,6 +94,8 @@ read_args() {
                 INIT=$optarg ;;
             ostree_boot=*)
 		OSTREE_BOOT_DEVICE=$optarg ;;
+            flux=*)
+                OSTREE_LABEL_FLUXDATA=$optarg ;;
         esac
     done
 }
