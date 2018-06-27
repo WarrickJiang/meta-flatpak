@@ -151,8 +151,8 @@ EOF
 
 		# boot partition
 		# Since OSTREE needs to create symlink to locate real kernel image, and vfat does not support symlink, so we need to a boot partition
-		# for kernel and initramfs images, 100MB in size
-		dd if=/dev/zero of=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}_boot.otaimg count=100000 bs=1024
+		# for kernel and initramfs images, 200MB in size
+		dd if=/dev/zero of=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}_boot.otaimg count=200000 bs=1024
 		mkfs.ext4 -O ^64bit ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}_boot.otaimg -L otaboot -d ${PHYS_SYSROOT}/boot
 		rm -rf ${PHYS_SYSROOT}/boot/*
 
