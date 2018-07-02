@@ -46,9 +46,13 @@ DEPENDS_append = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', ' systemd',
 DEPENDS_remove_class-native = "systemd-native"
 
 RDEPENDS_${PN} = "python util-linux-libuuid util-linux-libblkid util-linux-libmount libcap xz bash openssl"
+
 RDEPENDS_${PN}_remove_class-native = "python-native"
 
 RDEPENDS_${PN}_append_class-target = " pv"
+
+RDEPENDS_${PN}_remove_class-nativesdk = "util-linux-libuuid util-linux-libblkid util-linux-libmount"
+RDEPENDS_${PN}_append_class-nativesdk = " util-linux "
 
 EXTRA_OECONF = "--with-libarchive --disable-gtk-doc --disable-gtk-doc-html --disable-gtk-doc-pdf --disable-man --with-smack --with-builtin-grub2-mkconfig  \
  --libdir=${libdir} "
